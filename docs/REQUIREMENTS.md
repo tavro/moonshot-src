@@ -1,0 +1,4 @@
+- riscv64-unknown-elf-gcc
+- qemu-system-riscv64
+- make
+- bash
