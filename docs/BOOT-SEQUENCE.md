@@ -8,9 +8,9 @@ when the machine starts, the CPU begins execution at the reset vector defined by
 
 execution begins in:
 
-´´´
+```
 arch/riscv/start.S
-´´´
+```
 
 ## 2. assembly startup
 
@@ -20,23 +20,23 @@ the assembly bootstrap performs minimal hardware preparation before entering C c
 
 1. disable interrupts
 2. set stack pointer
-3. zero ´.bss´ section
+3. zero `.bss` section
 4. initialize global pointer (´gp´)
 5. jump into C kernel
 
 ### stack initialization
 
-the linker script provides a symbol ´_stack_top´
+the linker script provides a symbol `_stack_top`
 
-startup code loads it: ´la sp, _stack_top´
+startup code loads it: `la sp, _stack_top`
 
 ### entering C
 
-execution transfers to ´kernel_main()´. from this point onward execution is standard C environment (freestanding).
+execution transfers to `kernel_main()`. from this point onward execution is standard C environment (freestanding).
 
 ## 3. kernel_main()
 
-defined in ´knekt/kernel.c´
+defined in `knekt/kernel.c`
 
 current behavior:
 
@@ -45,31 +45,31 @@ current behavior:
 
 ## 4. UART output path
 
-printing uses ´uart_puts()´ and ´uart_putchar()´
+printing uses `uart_puts()` and `uart_putchar()`
 
 driver:
 
-´´´
+```
 knekt/uart.c
-´´´
+```
 
 UART is memory-mapped I/O with no interrupts, as of right now.
 
 ## 5. panic path
 
-assertions use macro ´assert(x)´
+assertions use macro `assert(x)`
 
 defined in:
 
-´´´
+```
 knekt/debug.h
-´´´
+```
 
 if condition fails:
 
-´´´
+```
 panic(msg, file, line)
-´´´
+```
 
 panic:
 
@@ -79,7 +79,7 @@ panic:
 
 ## 6. memory layout
 
-defined in ´linker.ld´
+defined in `linker.ld`
 
 | section | purpose |
 |--------|---------|
