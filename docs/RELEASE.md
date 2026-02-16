@@ -7,7 +7,9 @@ this document tracks changes between releases
 MAJOR.MINOR.PATCH
 
 MAJOR = architecture or ABI break
+
 MINOR = new subsystem or major feature
+
 PATCH = fixes / cleanup / refactors
 
 ---
@@ -31,10 +33,10 @@ first bootable kernel
 
 expected console output:
 
-´´´
+```
 Hello from knekt
-PANIC: Assertion failed: 0 @ kernel.c:5
-´´´
+PANIC: Assertion failed: 0 at kernel.c:5
+```
 
 host OS tested:
 
@@ -43,10 +45,10 @@ host OS tested:
 
 ### build instructions
 
-´´´
+```
 make clean
 make
-´´´
+```
 
 result:
 
@@ -54,9 +56,9 @@ moonshot.elf
 
 ### run
 
-´´´
+```
 ./scripts/run.sh
-´´´
+```
 
-and attach gdb, connect to remote and run ´continue´
+and attach gdb, connect to remote and run `continue`
 
